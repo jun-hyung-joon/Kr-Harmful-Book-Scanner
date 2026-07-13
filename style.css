@@ -1,0 +1,212 @@
+/* Apple Design System Variables */
+:root {
+    --apple-bg: #ffffff;
+    --apple-text-main: #1d1d1f;
+    --apple-text-sub: #86868b;
+    --apple-border: #e8e8ed;
+    --apple-blue: #0071e3;
+    --apple-blue-hover: #0077ed;
+    
+    --badge-red-bg: #fff0f0;
+    --badge-red-text: #ff3b30;
+    --badge-green-bg: #f2f9f3;
+    --badge-green-text: #34c759;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.022em;
+}
+
+/* 어설픈 컨테이너 외곽 여백을 없애고 화면을 완전히 고정하는 하드웨어 락 */
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    background-color: var(--apple-bg);
+    touch-action: none !important;
+    overscroll-behavior: none !important;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    color: var(--apple-text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 로딩 화면 가득 채우기 */
+.full-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 2.5px solid rgba(0, 0, 0, 0.05);
+    border-top: 2.5px solid var(--apple-blue);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 14px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-size: 13px;
+    color: var(--apple-text-sub);
+    font-weight: 500;
+}
+
+/* 모바일에서는 컴팩트하게 채우고 PC 모니터에서는 정중앙 배치되는 구조 */
+.main-layout {
+    width: 100%;
+    max-width: 440px;
+    height: 100%;
+    max-height: 680px;
+    padding: 50px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.app-header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.app-header .subtitle {
+    font-size: 13px;
+    color: var(--apple-text-sub);
+    line-height: 1.4;
+}
+
+/* 뷰파인더 그래픽 효과 */
+.video-container {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #000;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+#video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 결과 디스플레이 텍스트 배지 */
+.status-badge-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+}
+
+.status-badge {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 100px;
+}
+
+.status-badge.red {
+    background-color: var(--badge-red-bg);
+    color: var(--badge-red-text);
+}
+
+.status-badge.green {
+    background-color: var(--badge-green-bg);
+    color: var(--badge-green-text);
+}
+
+/* 애플 스타일 텍스트 테이블 정보 단락 */
+.info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-top: 1px solid var(--apple-border);
+    padding-top: 24px;
+    width: 100%;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.info-label {
+    color: var(--apple-text-sub);
+    font-weight: 400;
+    min-width: 80px;
+}
+
+.info-value {
+    color: var(--apple-text-main);
+    font-weight: 500;
+    text-align: right;
+    flex: 1;
+    padding-left: 16px;
+    word-break: keep-all;
+}
+
+.info-value.primary {
+    font-weight: 600;
+}
+
+.info-value.code {
+    font-family: -apple-system-font, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+}
+
+.safe-message {
+    font-size: 14px;
+    color: var(--apple-text-sub);
+    text-align: center;
+    line-height: 1.5;
+    padding: 6px 0;
+}
+
+/* 시스템 상호작용 컨트롤 버튼 */
+button {
+    display: block;
+    width: 100%;
+    margin-top: 40px;
+    padding: 16px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 100px;
+    background-color: var(--apple-blue);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+button:hover { background-color: var(--apple-blue-hover); }
+button:active { transform: scale(0.98); }

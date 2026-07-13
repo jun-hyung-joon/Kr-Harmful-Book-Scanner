@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kr-Harmful-Book-Scanner</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- 바코드 스캐너 및 CSV 파싱 라이브러리 -->
+    <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest/umd/index.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+    <!-- 초기 데이터 로딩 스크린 -->
+    <div id="loading-screen" class="full-panel">
+        <div class="spinner"></div>
+        <p class="loading-text">데이터 최적화 중</p>
+    </div>
+
+    <!-- 메인 앱 인터페이스 -->
+    <div id="app-content" class="main-layout" style="display: none;">
+        
+        <!-- 1. 스캐너 작동 섹션 -->
+        <div id="scanner-section">
+            <header class="app-header">
+                <h1>(청소년)유해간행물 조회</h1>
+                <p class="subtitle">책 뒷면의 바코드를 카메라 중앙에 비춰주세요.</p>
+            </header>
+            <div class="video-container">
+                <video id="video" autoplay playsinline></video>
+            </div>
+        </div>
+
+        <!-- 2. 결과 출력 섹션 (스캐너 영역과 완전히 분리하여 충돌 방지) -->
+        <div id="result-section" style="display: none;">
+            <header class="app-header">
+                <h1>조회 결과</h1>
+            </header>
+            <div id="result-content"></div>
+            <button id="rescan-btn">다른 도서 스캔</button>
+        </div>
+        
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
