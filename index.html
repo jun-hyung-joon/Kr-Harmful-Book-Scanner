@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도서 바코드 스캐너</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- 바코드 스캐너 라이브러리 -->
+    <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest/umd/index.min.js"></script>
+    <!-- 초고속 CSV 파싱 라이브러리 (추가) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+
+<body>
+    <h1>유해간행물 스캐너</h1>
+
+    <!-- [추가] 초기 로딩 화면 -->
+    <div id="loading-screen" style="padding: 50px 0; font-weight: bold; color: #0d6efd;">
+        데이터를 불러오는 중입니다... 잠시만 기다려주세요 ⏳
+    </div>
+
+    <!-- 로딩이 끝나면 보여질 실제 스캐너 영역 (처음엔 숨김) -->
+    <div id="app-content" style="display: none;">
+        <p>책 뒷면의 바코드를 화면 중앙에 비춰주세요.<br><span style="font-size: 12px; color: #777;">(초점이 흐릴 때 화면을 터치하면 초점을 다시 잡습니다)</span></p>
+        <div id="camera-frame">
+            <video id="video" autoplay muted playsinline webkit-playsinline></video>
+        </div>
+
+        <div id="result-card">
+            <span id="result-text">결과가 여기에 표시됩니다.</span><br>
+            <button id="rescan-btn" style="display:none;">다음 도서 스캔하기</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
